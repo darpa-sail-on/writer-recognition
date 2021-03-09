@@ -1,0 +1,21 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[packages]
+pytest = ">=5.4"
+opencv-python = ">=4.4.0.42"
+opencv-contrib-python = ">=4.4.0.42"
+numpy = "==1.19.1"
+scikit-image = "==0.17.2"
+youtube-dl = "==2020.5.8"
+networkx = "==2.5"
+pandas = "==1.1.2"
+tqdm = ">=4.50.0"
+
+[requires]
+python_version = "3.7"
+
+[pipenv]
+allow_prereleases = true
