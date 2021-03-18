@@ -7,16 +7,17 @@ def resize_image(image):
     import tensorflow as tf
     return tf.image.resize(image,[56,56])
 
-def build_model(num_classes):
+def build_model(num_classes, resize=False):
   # Build a neural network in Keras
   # Function to resize image to 64x64
   row, col, ch = 113, 113, 1
 
   model = Sequential()
   model.add(ZeroPadding2D((1, 1), input_shape=(row, col, ch)))
-
-  # Resise data within the neural network
-  #model.add(Lambda(resize_image))  #resize images to allow for easy computation
+ 
+  if resize:
+     #Resise data within the neural network
+     model.add(Lambda(resize_image))  #resize images to allow for easy computation
 
   # CNN model - Building the model suggested in paper
 

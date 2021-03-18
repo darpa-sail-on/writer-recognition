@@ -35,9 +35,9 @@ def prep_sample(image_file_name, batch_target, images, targets,factor = 0.5):
                 # Now pick
     random_startx = sample(avail_x_points,  pick_num)
     
-    im = np.copy(np.asarray(imresize))
-    im[im>50] = 255
-    im[im<=50] = 0
+    im = np.asarray(imresize)
+#    im[im>50] = 255
+#    im[im<=50] = 0
 
     for start in random_startx:
             images.append(im[:, start:start+113])
