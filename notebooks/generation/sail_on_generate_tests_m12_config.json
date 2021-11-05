@@ -1,0 +1,109 @@
+{
+    "period": "M18",
+
+    "____": [
+        "Handwriter recognition and activity recognition paths",
+        "Output path root and output paths for each novelty type (paths)",
+        "Full mapping from anonymized file names to actual file names (anonfile)",
+        "Knowledge graph labels for sanity checks (knowledge_graph_file)",        
+        "For handwriting rec., text and class/writer names by file name (lines_files)",
+        "Number of known class by ontology id, [0,known_classes_ontologyid) are known classes and [known_classes_ontologyid,inf] are unknown classes",
+        "Remove these classes from known class selections (known_class_exclude)",
+        "Remove these sources from selections (source_exclude)",
+        "Only include these sources for selections (source_include)",
+        "Number of test shuffles per specification line ie. test group (group_sizes)"
+        ],
+
+    "hwr": {
+        "anonfile": "/data/iam_data/anonn_2.csv",
+        "knowledge_graph_file": "/data/iam_data/knowledge_graph_labels.csv",
+        "lines_files": [
+            "/data/iam_data/lines_fixed/class_lookup.csv",
+            "/data/iam_data/lines_generated/class_lookup.csv"
+        ],
+        
+        "known_classes_ontologyid": 50,
+
+        "source_exclude": ["iam-words", "iam-lines", "iam-sentences"],
+        "known_class_exclude":  [],
+        "unknown_class_exclude": [
+            "062", "090", "132", "216", "298","300"
+        ],
+
+        "group_sizes": {
+            "class" : 10,
+            "nonnovel" : 10,
+            "letter": 10,
+            "background": 10
+        },
+
+        "selected_columns": ["group","text","annonymous_id","novel","ontology_id","letter","background","appearance"],
+        "output_columns": ["annonymous_id","text","novel","detection","ontology_id","letter","background","appearance"]
+
+    },
+
+    "ar": {
+        "anonfile": "/data/activity/MEDIA/anonname_to_filename_mapping_full_path.csv",
+        "knowledge_graph_file": "/data/activity/MEDIA/knowledge_graph_labels.csv",
+
+        "known_classes_ontologyid": 88,
+
+        "source_exclude": [],
+        "known_class_exclude":  [],
+        "unknown_class_exclude": [
+            
+        ],
+        "__unknown_class_exclude": [
+            "CricketShot", "HandstandPushups", "Knitting", "PlayingDhol","Shotput", "TaiChi"
+        ],
+        "___unknown_class_exclude": [
+            "CricketShot", "HandstandPushups", "HorseRiding", "Knitting", "PlayingDhol","Shotput", "TaiChi"
+        ],
+        "group_sizes": {
+            "class" : 10,
+            "nonnovel" : 10,
+            "spatial": 10,
+            "temporal": 10
+        },
+        
+        "selected_columns": ["group","annonymous_id","novel","ontology_id","spatial","temporal"],
+        "output_columns": ["annonymous_id","novel","detection","ontology_id","spatial","temporal"]
+
+    },
+
+    "____": [
+        "Parameters for the beta distribution for novelty (beta_dist_params)",
+        "low,mid,high,flat == right skew, normal-like, left skew, uniform",
+        "Batch number to start novelty world shift (red_light_batch_indices)"
+        ],
+    
+    "beta_dist_params": {
+        "low": [1.2,1.8],
+        "mid": [2,2],
+        "high": [1.8,1.2],
+        "flat": [1,1]
+    },
+    
+    "red_light_batch_indices": {
+        "E": [13,14,15],
+        "M": [18,19,20,21],
+        "H": [24,25,26]
+    },
+
+    "____": [
+        "Number of rounds/batches (batch_number)",
+        "Number of examples per batch (batch_size)",
+        "Maximum # of novel classes reported to evaluation (max_novel_classes)",
+        "Number of non-novel batch reported to evaluation (pre_novelty_batches)",
+        "Number of feedback rounds as a fraction of the batch_number (feedback_max_ids_fraction)"
+        ],    
+
+    "batch_number": 32,
+    "batch_size": 32,
+    "max_novel_classes": 4,
+    "pre_novelty_batches": 5,
+    "feedback_max_ids_fraction": 0.1,
+    
+    "____": []
+
+}
