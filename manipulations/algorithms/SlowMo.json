@@ -1,0 +1,30 @@
+{
+    "operation": {
+        "category": "Motion",
+        "name": "SlowMo",
+        "description": "Change the speed of the action",
+        "version": "4.3", 
+        "arguments": {
+            "ratio": {
+                "defaultvalue": "0.5",
+		"type": "float[0:1]",
+                "description": "0 to 1, 1 being normal"
+            }
+        }, 
+        "transitions": [
+            "video.video"
+        ], 
+        "software": "ffmpeg"
+    },
+    "command": {
+        "default": [
+            "ffmpeg", 
+	    "-i",
+            "{inputimage}",
+	    "-filter:v",
+            "setpts={ratio}*PTS",
+            "{outputimage}"
+        ]
+    }, 
+    "name": "SlowMo"
+}

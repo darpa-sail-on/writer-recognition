@@ -1,0 +1,25 @@
+{
+    "operation": {
+        "category": "Motion",
+        "name": "Reverse",
+        "description": "Change Direction of action",
+        "version": "4.3", 
+        "arguments": {
+        }, 
+        "transitions": [
+            "video.video"
+        ], 
+        "software": "ffmpeg"
+    },
+    "command": {
+        "default": [
+            "ffmpeg", 
+	    "-i",
+            "{inputimage}",
+	    "-vf",
+	    "reverse",
+            "{outputimage}"
+        ]
+    }, 
+    "name": "Reverse"
+}

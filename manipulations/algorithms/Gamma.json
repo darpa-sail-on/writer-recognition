@@ -1,0 +1,35 @@
+{
+    "operation": {
+        "category": "Color",
+        "name": Gamma",
+        "description": "Change in brightness"
+        "version": "4.3", 
+        "arguments": {
+	   "gamma": {
+                "defaultvalue": "1.5",
+                "type": "float",
+                "description": "1.0 = normal"
+            },
+	   "saturation": {
+                "defaultvalue": "1.5",
+                "type": "float",
+                "description": "1.0 = normal"
+            }
+        }, 
+        "transitions": [
+            "video.video"
+        ], 
+        "software": "ffmpeg"
+    },
+    "command": {
+        "default": [
+            "ffmpeg", 
+	    "-i",
+            "{inputimage}",
+	    "-vf",
+	    "eq=gamma={gamma}:saturation={saturation}",
+            "{outputimage}"
+        ]
+    }, 
+    "name": "Gamma"
+}

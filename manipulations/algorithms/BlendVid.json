@@ -1,0 +1,38 @@
+{
+    "operation": {
+        "category": "Blend",
+        "name": "Blend",
+        "description": "Change the speed of the action",
+        "version": "4.3", 
+        "arguments": {
+            "opacity": {
+                "defaultvalue": "0.8",
+		"type": "float[0:1]",
+                "description": "0 to 1, 1 being normal"
+            },
+            "blendfile": {
+                "defaultvalue": "0",
+		"type": "file:video",
+                "description": "video to blend as background"
+	    }
+        }, 
+        "transitions": [
+            "video.video"
+        ], 
+        "software": "ffmpeg"
+    },
+    "command": {
+        "default": [
+            "ffmpeg", 
+	    "-i",
+            "{inputimage}",
+	    "-i",
+            "{blendfile}",
+	    "-hide_banner",
+	    "-filter_complex",
+            "[1:0] setdar=dar=1,format=rgba [a]; [0:0]setdar=dar=1,format=rgba [b]; [b][a]blend=all_mode='overlay':all_opacity={opacity}",
+            "{outputimage}"
+        ]
+    },
+    "name": "Blend"
+}

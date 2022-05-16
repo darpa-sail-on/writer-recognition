@@ -1,0 +1,25 @@
+{
+    "operation": {
+        "category": "Color",
+        "name": "Hue",
+        "description": "Hue Change",
+        "version": "4.3", 
+        "arguments": {
+        }, 
+        "transitions": [
+            "video.video"
+        ], 
+        "software": "ffmpeg"
+    },
+    "command": {
+        "default": [
+            "ffmpeg", 
+	    "-i",
+            "{inputimage}",
+	    "-vf",
+	    "hue=s=0",
+            "{outputimage}"
+        ]
+    }, 
+    "name": "Hue"
+}

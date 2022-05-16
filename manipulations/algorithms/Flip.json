@@ -1,0 +1,25 @@
+{
+    "operation": {
+        "category": "Motion",
+        "name": Flip",
+        "description": "Change Direction of action",
+        "version": "4.3", 
+        "arguments": {
+        }, 
+        "transitions": [
+            "video.video"
+        ], 
+        "software": "ffmpeg"
+    },
+    "command": {
+        "default": [
+            "ffmpeg", 
+	    "-i",
+            "{inputimage}",
+	    "-vfilter:v",
+	    "hflip, vflip",
+            "{outputimage}"
+        ]
+    }, 
+    "name": "Flip"
+}
