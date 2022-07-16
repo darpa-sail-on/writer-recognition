@@ -19,4 +19,4 @@ We postulate writers with similar attributes are harder to distinguish.
 Given the limited number of writer samples per each writer, we create samples by creating new lines of text using sample words per each writer. 
 Using the writer's stylistic distributions, the lines of text contain a representative word spacing.  The notebook to generate these new data sets is [here](notebooks/writer-identification-line-mixes-generation.ipynb).
 
-We train a baseline writer identifier module without novelty detection [here](notebooks/training_writer_id.ipynb).
+We train a baseline writer identifier module without novelty detection [here](writer_identification/notebooks/training_writer_id.ipynb).
