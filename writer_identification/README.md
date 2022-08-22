@@ -19,3 +19,8 @@ See training_writer_id.ipynb
 # Evalauting
 
 See evaluation.ipynb
+
+# Reference
+
+Model based on:
+Xing, Linjie and Yu Qiao. “DeepWriter: A Multi-stream Deep CNN for Text-Independent Writer Identification.” 2016 15th International Conference on Frontiers in Handwriting Recognition (ICFHR) (2016): 584-589.
